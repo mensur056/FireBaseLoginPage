@@ -58,12 +58,27 @@ class _LoginScreenState extends State<LoginScreen> {
           TextField(
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-                hintText: 'User email',
-                prefixIcon: Icon(
-                  Icons.mail,
-                  color: Colors.black,
-                )),
-          )
+              hintText: 'User email',
+              prefixIcon: Icon(
+                Icons.mail,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 26,
+          ),
+          TextField(
+
+            obscureText: true,
+            decoration: InputDecoration(
+              hintText: 'Your password',
+              prefixIcon: Icon(
+                Icons.lock,
+                color: Colors.black,
+              ),
+            ),
+          ),
         ],
       ),
     );
