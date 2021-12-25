@@ -7,7 +7,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
@@ -45,11 +46,24 @@ class _LoginScreenState extends State<LoginScreen> {
             'MyApp title',
             style: TextStyle(
                 color: Colors.black, fontSize: 28, fontWeight: FontWeight.bold),
-          ), Text(
+          ),
+          Text(
             'Login to Your App',
             style: TextStyle(
                 color: Colors.black, fontSize: 44, fontWeight: FontWeight.bold),
           ),
+          SizedBox(
+            height: 44,
+          ),
+          TextField(
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+                hintText: 'User email',
+                prefixIcon: Icon(
+                  Icons.mail,
+                  color: Colors.black,
+                )),
+          )
         ],
       ),
     );
