@@ -8,12 +8,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+      home: HomePage(),
     );
   }
 }
-class LoginScreen extends StatefulWidget {
 
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: LoginScreen());
+  }
+}
+
+class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -24,5 +38,3 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container();
   }
 }
-
-
