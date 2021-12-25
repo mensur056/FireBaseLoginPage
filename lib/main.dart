@@ -35,6 +35,23 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'MyApp title',
+            style: TextStyle(
+                color: Colors.black, fontSize: 28, fontWeight: FontWeight.bold),
+          ), Text(
+            'Login to Your App',
+            style: TextStyle(
+                color: Colors.black, fontSize: 44, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
   }
 }
