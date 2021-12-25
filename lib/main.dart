@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
               hintText: 'User email',
               prefixIcon: Icon(
                 Icons.mail,
-                color: Colors.black,
+                color: Colors.grey,
               ),
             ),
           ),
@@ -69,16 +69,27 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 26,
           ),
           TextField(
-
             obscureText: true,
             decoration: InputDecoration(
               hintText: 'Your password',
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.black,
+                color: Colors.grey,
               ),
             ),
           ),
+          SizedBox(
+            height: 12,
+          ),
+          TextButton(
+              onPressed: () {},
+              child: Text(
+                "Don't remember your password?",
+                style: TextStyle(color: Colors.blue),
+              )),
+          SizedBox(
+            height: 18,
+          )
         ],
       ),
     );
