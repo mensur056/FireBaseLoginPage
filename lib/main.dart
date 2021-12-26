@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   Future<FirebaseApp> _initializeFirebase() async {
+    WidgetsBinding.instance;
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
   }
