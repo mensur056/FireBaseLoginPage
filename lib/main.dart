@@ -88,7 +88,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(color: Colors.blue),
               )),
           SizedBox(
-            height: 18,
+            height: 88,
+          ),
+          Container(
+            width: double.infinity,
+            child: RawMaterialButton(
+              fillColor: Colors.blue,
+              elevation: 0.0,
+              padding: EdgeInsets.symmetric(vertical: 20),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)),
+              onPressed: () {},
+              child: Text('Login'),
+            ),
           )
         ],
       ),
