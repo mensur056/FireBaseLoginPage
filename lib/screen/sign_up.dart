@@ -15,7 +15,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
 
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -26,23 +25,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
     _bioController.dispose();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Flexible(
                 child: Container(),
                 flex: 2,
               ),
-
               const SizedBox(
                 height: 24,
               ),
@@ -93,13 +91,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   alignment: Alignment.center,
                   width: double.infinity,
                   decoration: const ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(5),
-                        ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
                       ),
-                      ),
+                    ),
+                  ),
                 ),
+              ),
+              const SizedBox(
+                height: 64,
               ),
             ],
           ),
