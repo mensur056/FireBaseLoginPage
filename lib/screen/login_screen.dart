@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../profile_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -10,8 +11,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   static Future<User?> loginUsingEmailPassword(
       {required String email,
-        required String password,
-        required BuildContext context}) async {
+      required String password,
+      required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
     try {
@@ -78,12 +79,23 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(
             height: 12,
           ),
-          TextButton(
-              onPressed: () {},
-              child: Text(
-                "Don't remember your password?",
-                style: TextStyle(color: Colors.blue),
-              )),
+          Row(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Don't remember your password?",
+                  style: TextStyle(color: Colors.blue),
+                ),
+              ),Spacer(),TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(color: Colors.blue),
+                ),
+              ),
+            ],
+          ),
           SizedBox(
             height: 88,
           ),
