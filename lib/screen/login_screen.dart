@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_page_firebase/screen/sign_up.dart';
 
 import '../profile_screen.dart';
 
@@ -87,8 +88,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   "Don't remember your password?",
                   style: TextStyle(color: Colors.blue),
                 ),
-              ),Spacer(),TextButton(
-                onPressed: () {},
+              ),
+              Spacer(),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignUpScreen()),
+                  );
+                },
                 child: Text(
                   "Sign Up",
                   style: TextStyle(color: Colors.blue),
