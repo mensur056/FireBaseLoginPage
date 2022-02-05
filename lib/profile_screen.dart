@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProfileScreen extends StatefulWidget {
-
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
@@ -25,7 +24,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         backgroundColor: Color(0xff09031D),
         elevation: 0,
-        leading: Icon(Icons.arrow_back_ios),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
         actions: [
           Icon(
             Icons.more_vert,
@@ -145,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Container(
                 padding:
-                EdgeInsets.only(left: 17, top: 8, right: 17, bottom: 5),
+                    EdgeInsets.only(left: 17, top: 8, right: 17, bottom: 5),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(33)),
                     gradient: LinearGradient(
@@ -204,7 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Padding(
                     padding:
-                    const EdgeInsets.only(left: 15.0, top: 33, right: 15),
+                        const EdgeInsets.only(left: 15.0, top: 33, right: 15),
                     child: Text(
                       'Protfllio',
                       style: TextStyle(
@@ -223,26 +226,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           padding: const EdgeInsets.only(right: 17.0, top: 3),
                           child: index == 1
                               ? Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                categories[index],
-                                style: TextStyle(
-                                    color: Color(0xff434AE8),
-                                    fontSize: 19),
-                              ),
-                              CircleAvatar(
-                                radius: 2,
-                                backgroundColor: Color(0xff434AE8),
-                              )
-                            ],
-                          )
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      categories[index],
+                                      style: TextStyle(
+                                          color: Color(0xff434AE8),
+                                          fontSize: 19),
+                                    ),
+                                    CircleAvatar(
+                                      radius: 2,
+                                      backgroundColor: Color(0xff434AE8),
+                                    )
+                                  ],
+                                )
                               : Text(
-                            categories[index],
-                            style: TextStyle(
-                                color: Colors.grey.withOpacity(0.9),
-                                fontSize: 19),
-                          ),
+                                  categories[index],
+                                  style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.9),
+                                      fontSize: 19),
+                                ),
                         );
                       },
                     ),
@@ -261,16 +264,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               itemCount: 4,
                               itemBuilder: (BuildContext context, int index) =>
                                   Container(
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(12),
-                                      ),
-                                      child: Image.asset(
-                                        'images/m${index + 1}.jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(12),
                                   ),
+                                  child: Image.asset(
+                                    'images/m${index + 1}.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
                               staggeredTileBuilder: (int index) =>
                                   StaggeredTile.count(2, index.isEven ? 3 : 1),
                               mainAxisSpacing: 9,
@@ -301,13 +304,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 width: 33,
                               ),
                               IconButton(
-                                onPressed: () {setState(() {
-                                  if(_iconColor == Colors.grey){
-                                    _iconColor = Colors.red;
-                                  }else{
-                                    _iconColor = Colors.grey;
-                                  }
-                                });
+                                onPressed: () {
+                                  setState(() {
+                                    if (_iconColor == Colors.grey) {
+                                      _iconColor = Colors.red;
+                                    } else {
+                                      _iconColor = Colors.grey;
+                                    }
+                                  });
                                 },
                                 icon: Icon(Icons.favorite, color: _iconColor),
                               ),
@@ -330,7 +334,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             decoration: BoxDecoration(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(55)),
+                                  BorderRadius.all(Radius.circular(55)),
                               gradient: LinearGradient(
                                   colors: [
                                     Color(0xff6615C1),
