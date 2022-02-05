@@ -18,16 +18,20 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
-  Future<FirebaseApp> _initializeFirebase() async {
+  Future<FirebaseApp> initializeFirebase() async {
+    WidgetsFlutterBinding.ensureInitialized();
     WidgetsBinding.instance;
-    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    FirebaseApp firebaseApp = await Firebase.initializeApp(
+        options: const FirebaseOptions(
+            apiKey: "AIzaSyBC9X7XtGYkdX6YyVumTbAUzpTvtBfZ2lI",
+            appId: "1:912271499083:web:d2be584c672727e1f552ce",
+            messagingSenderId: "912271499083",
+            projectId: "fir-loginpage-38f79"));
     return firebaseApp;
   }
 
@@ -35,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: _initializeFirebase(),
+        future: initializeFirebase(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return LoginScreen();
@@ -75,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -98,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 44,
           ),
           TextField(
-            controller: _emailController,
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               hintText: 'User email',
@@ -112,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 26,
           ),
           TextField(
-            controller: _passwordController,
+            controller: passwordController,
             obscureText: true,
             decoration: const InputDecoration(
               hintText: 'Your password',
@@ -144,8 +148,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(15)),
               onPressed: () async {
                 User? user = await loginUsingEmailPassword(
-                    email: _emailController.text,
-                    password: _passwordController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
                     context: context);
                 print(user);
                 if (user != null) {
